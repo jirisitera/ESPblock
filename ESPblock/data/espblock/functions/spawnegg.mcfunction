@@ -1,0 +1,6 @@
+#spawn correct egg
+execute as @e[nbt={Item:{id:"minecraft:smooth_stone_slab",Count:3b}}] at @s if entity @e[nbt={Item:{id:"minecraft:redstone_torch",Count:2b}},distance=..1] if entity @e[nbt={Item:{id:"minecraft:redstone",Count:1b}},distance=..1] if entity @e[nbt={Item:{id:"minecraft:repeater",Count:1b}},distance=..1] run summon item ~ ~ ~ {Item:{id:"minecraft:chicken_spawn_egg",Count:1b,tag:{display:{Name:'{"text":"Spawn ESPblock","italic":false}'},EntityTag:{id:"minecraft:area_effect_cloud",Particle:"mycelium",Radius:0f,Duration:0,Age:0,Tags:["spawn_espblock"]}}}}
+#spawn correct particle
+execute as @e[nbt={Item:{id:"minecraft:smooth_stone_slab",Count:3b}}] at @s if entity @e[nbt={Item:{id:"minecraft:redstone_torch",Count:2b}},distance=..1] if entity @e[nbt={Item:{id:"minecraft:redstone",Count:1b}},distance=..1] if entity @e[nbt={Item:{id:"minecraft:repeater",Count:1b}},distance=..1] run particle minecraft:dust 1 0 0 2 ~ ~ ~ 0.2 0.2 0.2 10 10 normal
+#call cleanup function
+function espblock:eggcleanup

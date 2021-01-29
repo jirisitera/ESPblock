@@ -1,0 +1,11 @@
+{
+ "values": [
+ "espblock:espblockmain",
+ "espblock:destroyblocks",
+ "espblock:sendmessagegivetag",
+ "espblock:sendmessage",
+ "espblock:turnonespblock",
+ "espblock:turnoffespblock",
+ "espblock:spawnegg"
+ ]
+}

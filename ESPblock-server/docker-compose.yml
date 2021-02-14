@@ -1,0 +1,61 @@
+# ESPblock server full setup docker-compose file
+# see https://github.com/jirisitera/ESPblock
+# Minecraft server with MQTT input and output scripts each
+# in its own docker container
+#
+# setup: just install docker-compose
+#
+# start the whole system: docker-compose up -d
+#
+# stat: docker-compose ps
+# read logs: docker-compose logs
+#
+#
+# start minecraft server only: docker-compose up -d mc
+# stop and remove docker containers: docker-compose down
+# refresh containers from docker hub: docker-compose pull
+# access container: docker-compose exec mc-log bash
+
+version: '3'
+
+services:
+  mc:
+    image: itzg/minecraft-server
+    ports:
+      - "25565:25565"
+      # RCON accessible via internal network to other containers in this file
+    volumes:
+      - "/home/minecraft/server-data:/data"
+    environment:
+      EULA: "TRUE"
+      VERSION: 1.16.3
+      TYPE: "BUKKIT"
+      ENABLE_COMMAND_BLOCK: "TRUE"
+      MOTD: "ESPblock Minecraft server"
+      MEMORY: "4G"
+      ENABLE_RCON: "true"
+      RCON_PASSWORD: "imnotaccessibleoutside"
+
+    #restart: always
+  mc-log:
+    image: sitera/mc-log-mqtt
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
+    environment:
+      MQTT_HOSTNAME: IP
+      MQTT_PORT: port
+      #relative to server-data (volume /data)
+      INPUT_FILENAME: /data/logs/latest.log
+    volumes:
+      - "/home/minecraft/server-data:/data"
+  mc-rcon:
+    image: sitera/mc-rcon-mqtt
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
+    environment:
+      MQTT_HOSTNAME: IP
+      MQTT_PORT: port
+      RCON_HOSTNAME: mc  # resolves to the IP address of mc container
+      RCON_PORT: 25575
+      RCON_PASSWORD: "imnotaccessibleoutside" 
+

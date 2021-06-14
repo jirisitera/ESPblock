@@ -1,3 +1,6 @@
+execute as @e[tag=tester,tag=ESPblock_on] at @s if entity @e[type=minecraft:item,distance=..1] run say Status: Item Detected: @e[type=minecraft:item,distance=..1]
+execute as @e[tag=tester,tag=ESPblock_on] at @s if entity @e[type=minecraft:item,distance=..1] run kill @e[type=minecraft:item,distance=..1]
+
 execute as @e[tag=transmitter,tag=power0] at @s run say Status: Power = 0
 execute as @e[tag=transmitter,tag=power0] at @s run tag @s add sentpower0
 execute as @e[tag=transmitter,tag=power0] at @s run tag @s remove power0

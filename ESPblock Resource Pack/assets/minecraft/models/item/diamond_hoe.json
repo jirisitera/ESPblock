@@ -9,7 +9,11 @@
 		{ "predicate": { "damaged": 0, "damage": 0.00192184497}, "model": "block/espblock_red_transmitter"},
 		{ "predicate": { "damaged": 0, "damage": 0.00256245996}, "model": "block/espblock_red_transmitter_off"},
 		{ "predicate": { "damaged": 0, "damage": 0.00320307495}, "model": "block/espblock_red_receiver"},
-		{ "predicate": { "damaged": 0, "damage": 0.00384368994}, "model": "block/espblock_red_receiver_off"}
+		{ "predicate": { "damaged": 0, "damage": 0.00384368994}, "model": "block/espblock_red_receiver_off"},
+		{ "predicate": { "damaged": 0, "damage": 0.00448430493}, "model": "block/espblock_red_tester"},
+		{ "predicate": { "damaged": 0, "damage": 0.00512491992}, "model": "block/espblock_red_tester_off"},
+		{ "predicate": { "damaged": 0, "damage": 0.00576553491}, "model": "block/espblock_red_displayer"},
+		{ "predicate": { "damaged": 0, "damage": 0.0064061499}, "model": "block/espblock_red_displayer_off"}
 
 	]
 }

@@ -1,4 +1,8 @@
+execute as @s at @s run kill @e[type=minecraft:item,nbt={Item:{id:"minecraft:cyan_dye"}},distance=..1]
 tag @s add receiver
+tag @s remove transmitter
+tag @s remove tester
+tag @s remove displayer
 tag @s remove power0
 tag @s remove power1
 tag @s remove power2
